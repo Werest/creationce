@@ -28,7 +28,7 @@ def start_msg(msg):
 
 @bot.message_handler(commands=['version'])
 def start_msg(msg):
-    bot.send_message(msg.chat.id, cg.version)
+    bot.send_message(msg.chat.id, cg.VERSION)
 
 
 @bot.message_handler(commands=['water'])
