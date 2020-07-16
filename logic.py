@@ -69,7 +69,14 @@ def user_entering_name(message):
     msg = message.text
     bot.send_message(message.chat.id, cg.COLD_WATER_YOU % msg)
     bot.send_message(message.chat.id, "Показания записаны. Спасибо!")
-    # dbworker.set_state(message.chat.id, cg.State.COLD_WATER.value)
+    dbworker.set_state(message.chat.id, cg.State.S_START.value)
+
+@bot.message_handler(commands=["social"])
+def send_social(message):
+    pp = ""
+    for key, val in cg.social_array.items():
+        pp += key + ' '+ val + '\n\n'
+    bot.send_message(message.chat.id, pp)
 
 
 @bot.message_handler(content_types=['text'])
